@@ -1,6 +1,8 @@
 
 *.zip
 *.csv
+*.qmd
+!blk_grp_urban_join.csv
 unzipped/Demographic_Data_Block_AK.v01/.DS_Store
 unzipped/Demographic_Data_Block_AK.v01/LICENSE
 unzipped/Demographic_Data_Block_AK.v01/README

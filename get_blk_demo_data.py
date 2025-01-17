@@ -12,7 +12,6 @@ states = [
 
 
 def download():
-
     
     # Base URL
     base_url = "https://data.dra2020.net/file/dra-block-data/Demographic_Data_Block_{}.v01.zip"

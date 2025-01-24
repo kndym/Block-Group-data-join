@@ -126,6 +126,13 @@ def calculate_state_population_shares(blk_grp_urban_join_path, merged_demographi
     
     return f"Results saved to {output_path}"
 
+blk_grp_class="blk_grp_classes.csv"
 
-result_message = calculate_state_population_shares('blk_grp_urban_join.csv', 'merged_demographic_data.csv', 'state_urban.csv')
+blk_grp_pop="merged_demographic_data.csv"
+
+result_message = calculate_state_population_shares(blk_grp_class, blk_grp_pop, 'state_urban.csv')
+print(result_message)
+result_message = calculate_county_population_shares(blk_grp_class, blk_grp_pop, 'county_urban.csv')
+print(result_message)
+result_message = calculate_district_population_shares(blk_grp_class, blk_grp_pop, 'house_urban.csv')
 print(result_message)

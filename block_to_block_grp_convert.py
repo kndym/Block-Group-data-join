@@ -17,7 +17,7 @@ states = [
 
 # Process each state's CSV file
 for state in states:
-    input_path = os.path.join(unzipped_dir, f"Demographic_Data_Block_{state}.v01", f"demographic_data_block_{state}.v01.csv")
+    input_path = os.path.join(unzipped_dir, f"{state}", f"demographic_data_block_{state}.v01.csv")
     output_path = os.path.join(output_dir, f"demographic_data_blockgroup_{state}.v01.csv")
 
     if os.path.exists(input_path):

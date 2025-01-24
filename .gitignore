@@ -7,5 +7,7 @@
 !Urbanized Save.csv
 !merged_demographic_data.csv
 /unzipped
+/education scripts
 block_to_block_grp_convert.py
 get_blk_demo_data.py
+join_state_to_csv.py

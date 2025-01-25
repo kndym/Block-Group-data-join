@@ -6,6 +6,8 @@
 *.json
 !Urbanized Save.csv
 !merged_demographic_data.csv
+!my_blk_grp_final_output.csv
+!assignments.csv
 /unzipped
 /education scripts
 block_to_block_grp_convert.py

@@ -196,7 +196,13 @@ def find_classes(loop_length=5, tract_geopkg="urban full join.gpkg", new_urban_c
 
     final_df = final_df[columns_to_keep]
 
-    blkgroup_tract_df=pd.read_csv("assignments.csv", dtype={"tract_2010_GEOID": str})
+    blkgroup_tract_df=pd.read_csv("assignments.csv", dtype={"tract_2010_GEOID": str, 
+                                                            "STATEFP": str,
+                                                            "COUNTYFP": str,
+                                                            "TRACTCE": str,
+                                                            "BLKGRPCE":str,
+                                                            "blk_grp_GEOID":str,
+                                                            "tract_2010_GEOID":str})
 
     columns_to_keep=["STATEFP","COUNTYFP","TRACTCE","BLKGRPCE", "blk_grp_GEOID", "tract_2010_GEOID"]
 
@@ -207,8 +213,10 @@ def find_classes(loop_length=5, tract_geopkg="urban full join.gpkg", new_urban_c
     print("read assignment.csv")
 
     final_blk_df=blkgroup_tract_df.merge(final_df, left_on="tract_2010_GEOID", right_on="GEOID", how="left")
+
     # Save as GeoPackage
-    output_name= "blk_grp_final_output.csv"
+    output_name= "my_blk_grp_final_output.csv"
+
     final_blk_df.to_csv(output_name)
     print(f"file saved as {output_name}")
 

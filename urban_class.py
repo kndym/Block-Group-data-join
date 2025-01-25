@@ -45,7 +45,7 @@ def data_clean(gpkg_path):
 
 
 
-def flip_classes_based_on_neighbors_vectorized(df):
+def flip_classes_based_on_neighbors_vectorized(df, alpha=0.6, beta=0.75):
     """
     Flips the class of each census tract if more than 75% of the nearest households
     and at least 15,000 of the nearest households belong to a different class.
@@ -70,7 +70,7 @@ def flip_classes_based_on_neighbors_vectorized(df):
     homo_updates ={}
 
     # Iterate over all rows with a progress bar
-    for index, row in tqdm(df[df["Homogenity"]<0.75].iterrows() , total=df.shape[0], desc="Flipping Classes"):
+    for index, row in tqdm(df[df["Homogenity"]<beta].iterrows() , total=df.shape[0], desc="Flipping Classes"):
         if not row["Nearest_Neighbors_List"]:
             continue  # Skip if no neighbors
 
@@ -89,8 +89,6 @@ def flip_classes_based_on_neighbors_vectorized(df):
         urban_households = neighbor_households[neighbor_classes == "Urban"].sum()
 
         urban_ratio = urban_households / total_households
-
-        alpha=0.6
 
         # Determine flip conditions
         if row["Class"] == "Urban":  
